@@ -6,11 +6,7 @@ import com.sun.xml.internal.bind.AnyTypeAdapter;
 import java.lang.Integer;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import javax.xml.bind.annotation.adapters.NormalizedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
@@ -36,6 +32,7 @@ public class Date {
     @XmlAttribute(name = "year", required = true)
     //@XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     protected int year;
+    @XmlElement
     protected List<Order> order;
     public static Date newInstance(int day, int month, int year, List<Order> order)
     {
@@ -119,6 +116,10 @@ public class Date {
         this.year = value;
     }
 
+    public void setOrder(List<Order> order) {
+        this.order = order;
+    }
+
     /**
      * Gets the value of the order property.
      *
@@ -141,10 +142,8 @@ public class Date {
      *
      *
      */
+
     public List<Order> getOrder() {
-        if (order == null) {
-            order = new ArrayList<Order>();
-        }
         return this.order;
     }
     public boolean equalsDate(Date date){

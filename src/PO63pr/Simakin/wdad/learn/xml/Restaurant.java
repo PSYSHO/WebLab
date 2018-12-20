@@ -4,10 +4,7 @@ package PO63pr.Simakin.wdad.learn.xml;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -19,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 @XmlRootElement(name = "restaurant")
 public class Restaurant {
-
+    @XmlElement
     protected List<Date> date;
 
     /**
@@ -44,14 +41,10 @@ public class Restaurant {
      * 
      * 
      */
+
     public Date getDate(Date d)
     {
-        for(Date date : this.date)
-        {
-            if(date.equalsDate(d))
-                return date;
-        }
-        return null;
+        return d;
     }
     public List<Date> getDate() {
         if (date == null) {

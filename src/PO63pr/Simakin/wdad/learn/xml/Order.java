@@ -3,10 +3,7 @@ package PO63pr.Simakin.wdad.learn.xml;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -22,6 +19,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Order {
 
     protected Officiant officiant;
+    @XmlElement
     protected List<Item> item;
     protected double totalcost;
 
@@ -71,10 +69,8 @@ public class Order {
      * 
      * 
      */
+
     public List<Item> getItem() {
-        if (item == null) {
-            item = new ArrayList<Item>();
-        }
         return this.item;
     }
 

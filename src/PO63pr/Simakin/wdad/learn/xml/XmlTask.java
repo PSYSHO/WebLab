@@ -10,9 +10,12 @@ import java.io.FileOutputStream;
 import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class XmlTask {
+    List<Order> dump = new ArrayList<>(1);
     public Restaurant getRestaurant()
     {
         return restaurant;
@@ -43,7 +46,9 @@ public class XmlTask {
     public double earningsTotal(String officiantSecondName, Calendar calendar)
     {
         double total = 0.0;
-        Date comparingDate = Date.newInstance(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR), null);
+        Date comparingDate = Date.newInstance(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR),dump);
+        Date trin = restaurant.getDate(comparingDate);
+        //System.out.println(trin.toString());
         for(Order ord : restaurant.getDate(comparingDate).getOficciantDayOrder(officiantSecondName))
             total += ord.totalcost;
         return total == 0.0 ? -1 : total;
@@ -51,7 +56,7 @@ public class XmlTask {
     public void removeDay(Calendar calendar)
     {
         int d = calendar.get(Calendar.DAY_OF_MONTH);
-        restaurant.date.remove(restaurant.getDate(Date.newInstance(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR), null)));
+        restaurant.date.remove(restaurant.getDate(Date.newInstance(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR), dump)));
     }
     public void changeOfficiantName(String oldFirstName, String oldSecondName, String newFirstName, String newSecondName)
     {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE restaurant SYSTEM "restaurant.dtd">
+<restaurant>
+    <date day="05" month="11" year="2007">
+            <order>
+                <officiant firstname="Ingvar" secondname="sidorov"/>
+                <item name="Borsthsh" cost="150.00"/>
+                <item name="Vodka and GranFather SAMOGHON" cost="500.00"/>
+                <totalcost>650.00</totalcost>
+            </order>
+    </date>
+</restaurant>
