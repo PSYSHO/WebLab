@@ -22,15 +22,15 @@ public class Item {
     @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
     protected String name;
     @XmlAttribute(name = "cost", required = true)
-    @XmlJavaTypeAdapter(NormalizedStringAdapter.class)
-    protected String cost;
+    //@XmlJavaTypeAdapter(NormalizedStringAdapter.class)
+    protected double cost;
 
     /**
      * Gets the value of the name property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link double }
      *     
      */
     public String getName() {
@@ -42,7 +42,7 @@ public class Item {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link double }
      *     
      */
     public void setName(String value) {
@@ -54,10 +54,10 @@ public class Item {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link double }
      *     
      */
-    public String getCost() {
+    public double getCost() {
         return cost;
     }
 
@@ -66,10 +66,10 @@ public class Item {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link double }
      *     
      */
-    public void setCost(String value) {
+    public void setCost(Double value) {
         this.cost = value;
     }
 

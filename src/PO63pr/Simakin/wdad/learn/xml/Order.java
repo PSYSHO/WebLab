@@ -23,7 +23,7 @@ public class Order {
 
     protected Officiant officiant;
     protected List<Item> item;
-    protected String totalcost;
+    protected double totalcost;
 
     /**
      * Gets the value of the officiant property.
@@ -86,7 +86,7 @@ public class Order {
      *     {@link String }
      *     
      */
-    public String getTotalcost() {
+    public Double getTotalcost() {
         return totalcost;
     }
 
@@ -98,7 +98,7 @@ public class Order {
      *     {@link String }
      *     
      */
-    public void setTotalcost(String value) {
+    public void setTotalcost(Double value) {
         this.totalcost = value;
     }
 

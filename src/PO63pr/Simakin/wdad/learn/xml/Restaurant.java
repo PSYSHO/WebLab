@@ -2,6 +2,7 @@
 package PO63pr.Simakin.wdad.learn.xml;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -43,11 +44,19 @@ public class Restaurant {
      * 
      * 
      */
+    public Date getDate(Date d)
+    {
+        for(Date date : this.date)
+        {
+            if(date.equalsDate(d))
+                return date;
+        }
+        return null;
+    }
     public List<Date> getDate() {
         if (date == null) {
-            date = new ArrayList<Date>();
+            date = new ArrayList<>();
         }
         return this.date;
     }
-
 }
