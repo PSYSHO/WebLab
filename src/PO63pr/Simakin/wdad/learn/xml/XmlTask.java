@@ -3,9 +3,6 @@ package PO63pr.Simakin.wdad.learn.xml;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.transform.stream.StreamSource;
 import java.io.FileOutputStream;
 import java.io.StringReader;
 import java.nio.file.Files;
@@ -16,6 +13,15 @@ import java.util.List;
 
 public class XmlTask {
     List<Order> dump = new ArrayList<>(1);
+    private String file;
+    public XmlTask(String file) throws Exception {
+        this.file = file;
+        restaurant = (Restaurant)loadObjectFromXML(file, Restaurant.class);
+    }
+    public List<Order> getOrders(java.util.Date date)
+    {
+        return restaurant.getOrders(date);
+    }
     public Restaurant getRestaurant()
     {
         return restaurant;
@@ -23,7 +29,7 @@ public class XmlTask {
 
     private Restaurant restaurant;
 
-    XmlTask() throws Exception
+    public XmlTask() throws Exception
     {
         restaurant = (Restaurant)loadObjectFromXML("Test.xml", Restaurant.class);
     }
@@ -58,7 +64,7 @@ public class XmlTask {
         int d = calendar.get(Calendar.DAY_OF_MONTH);
         restaurant.date.remove(restaurant.getDate(Date.newInstance(calendar.get(Calendar.DAY_OF_MONTH), calendar.get(Calendar.MONTH)+1, calendar.get(Calendar.YEAR), dump)));
     }
-    public void changeOfficiantName(String oldFirstName, String oldSecondName, String newFirstName, String newSecondName)
+    public void changeOfficciantName(String oldFirstName, String oldSecondName, String newFirstName, String newSecondName)
     {
         for(Date date : restaurant.date)
             for(Order order : date.order)
@@ -67,5 +73,22 @@ public class XmlTask {
                     order.officiant.firstname = newFirstName;
                     order.officiant.secondname = newSecondName;
                 }
+    }
+
+    public void changeOfficciantName(Officiant oldOfficiant, Officiant newOfficiant) {
+        restaurant.changeOfficciantName(oldOfficiant, newOfficiant);
+    }
+
+    public java.util.Date lastOfficiantWorkDate(Officiant officiant) {
+        java.util.Date current;
+        List<java.util.Date> d = restaurant.getDatesByOfficiantUtilDate(officiant);
+        if(d != null && d.size() != 0) current = d.get(0);
+        else return null;
+        for(java.util.Date date : d)
+        {
+            if(date.after(current))
+                current = date;
+        }
+        return current;
     }
 }

@@ -2,7 +2,6 @@
 package PO63pr.Simakin.wdad.learn.xml;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import javax.xml.bind.annotation.*;
 
@@ -51,5 +50,38 @@ public class Restaurant {
             date = new ArrayList<>();
         }
         return this.date;
+    }
+    public void changeOfficciantName(Officiant oldName, Officiant newName)
+    {
+        for(Date d : date)
+            d.updateOfficiantName(oldName, newName);
+    }
+
+    public List<Order> getOrders(java.util.Date date) {
+        List<Order> result = new ArrayList<>();
+        for(Date d : this.date)
+        {
+            if(d.equalsByDate(date))
+            {
+                result.addAll(d.order);
+                return result;
+            }
+        }
+        return null;
+    }
+
+    public List<java.util.Date> getDatesByOfficiantUtilDate(Officiant officiant) {
+        List<java.util.Date> dateList = new ArrayList<>();
+        for (Date d : getDatesByOfficiant(officiant))
+            dateList.add(d.getDate());
+        return dateList;
+    }
+
+    private List<Date> getDatesByOfficiant(Officiant officiant) {
+        List<Date> dateList = new ArrayList<>();
+        for (Date d : date)
+            if(d.hasSomeOrdersByOfficiant(officiant))
+                dateList.add(d);
+        return dateList;
     }
 }

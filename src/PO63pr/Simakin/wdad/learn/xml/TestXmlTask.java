@@ -8,7 +8,7 @@ public class TestXmlTask {
     public static void main(String[] args) throws Exception
     {
         XmlTask task = new XmlTask();
-        task.changeOfficiantName("Ingvar", "sidorov", "Vesimir", "Oldskin");
+        task.changeOfficciantName("Ingvar", "sidorov", "Vesimir", "Oldskin");
         Calendar calend = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         Date date = sdf.parse("05.11.2007");

@@ -4,7 +4,9 @@ package PO63pr.Simakin.wdad.learn.xml;
 import com.sun.xml.internal.bind.AnyTypeAdapter;
 
 import java.lang.Integer;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
@@ -169,6 +171,34 @@ public class Date {
             if(order.getOfficiant().secondname.equals(officiantSecondName))
                 officiantsOrder.add(order);
         return officiantsOrder;
+    }
+    public void updateOfficiantName(Officiant oldName, Officiant newName)
+    {
+        for(Order o : getOrdersByOfficiant(oldName))
+            o.setOfficiant(newName);
+    }
+    public List<Order> getOrdersByOfficiant(Officiant officiant)
+    {
+        ArrayList<Order> ords = new ArrayList<>();
+        for(Order o : order)
+            if(o.officiant.equals(officiant))
+                ords.add(o);
+        return ords;
+    }
+
+    public boolean equalsByDate(java.util.Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return this.day == cal.get(Calendar.DAY_OF_MONTH) && this.month == cal.get(Calendar.MONTH)+1 && this.year == cal.get(Calendar.YEAR);
+    }
+
+    public boolean hasSomeOrdersByOfficiant(Officiant officiant) {
+            return getOrdersByOfficiant(officiant).size() != 0;
+    }
+
+    public java.util.Date getDate() {
+        java.util.Date d = java.sql.Date.valueOf(LocalDate.of(year, month, day));
+        return d;
     }
     /*public java.util.Date getDate(){
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-mm-yyyy");

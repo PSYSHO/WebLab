@@ -2,11 +2,43 @@
 <!DOCTYPE restaurant SYSTEM  "restaurant.dtd">
 <restaurant>
     <date day="05" month="11" year="2007">
-            <order>
-                <officiant firstname="Ingvar" secondname="sidorov"/>
-                <item name="Borsthsh" cost="150.00"/>
-                <item name="Vodka and GranFather SAMOGHON" cost="500.00"/>
-                <totalcost>650,00</totalcost>
-            </order>
+    <order>
+        <officiant firstname="Ingvar" secondname="sidorov"/>
+        <item name="Borsthsh" cost="150.00"/>
+        <item name="Vodka and GranFather SAMOGHON" cost="500.00"/>
+        <totalcost>650,00</totalcost>
+    </order>
+</date>
+    <date day="07" month="11" year="2007">
+        <order>
+            <officiant firstname="Ivan" secondname="sidorov"/>
+            <item name="Grenki" cost="120.00"/>
+            <item name="Beer" cost="50"/>
+            <totalcost>650,00</totalcost>
+        </order>
+    </date>
+    <date day="05" month="11" year="2007">
+        <order>
+            <officiant firstname="Ivar" secondname="petrov"/>
+            <item name="Borsthsh" cost="150.00"/>
+            <item name="Vodka and GranFather SAMOGHON" cost="500.00"/>
+            <totalcost>650,00</totalcost>
+        </order>
+    </date>
+    <date day="05" month="10" year="2007">
+        <order>
+            <officiant firstname="Petr" secondname="ivanov"/>
+            <item name="Borsthsh" cost="150.00"/>
+            <item name="Vodka and GranFather SAMOGHON" cost="500.00"/>
+            <totalcost>650,00</totalcost>
+        </order>
+    </date>
+    <date day="07" month="11" year="2007">
+        <order>
+            <officiant firstname="Max" secondname="sidorov"/>
+            <item name="Borsthsh" cost="150.00"/>
+            <item name="Vodka and GranFather SAMOGHON" cost="500.00"/>
+            <totalcost>650,00</totalcost>
+        </order>
     </date>
 </restaurant>

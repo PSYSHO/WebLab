@@ -220,7 +220,7 @@ public class PreferencesManager {
         Appconfig appconfig = null;
         try {
             JAXBContext context = JAXBContext.newInstance(Appconfig.class);
-            InputStream is = new FileInputStream("src/PO63pr.Simakin.wdad/resources.configuration/appconfig.xml");
+            InputStream is = new FileInputStream("C:\\Users\\PSYSHO\\Desktop\\starting-monkey-to-human-path\\src\\PO63pr\\Simakin\\wdad\\resources\\configuration\\appconfig.xml");
             Unmarshaller unmarshaller = context.createUnmarshaller();
             appconfig = (Appconfig) unmarshaller.unmarshal(is);
             is.close();
@@ -230,5 +230,14 @@ public class PreferencesManager {
         catch (IOException e) {e.printStackTrace();}
 
         return appconfig;
+    }
+
+    public String getBindedObjectName(String cNAME) {
+        for(Bindedobject obj : appconfig.getRmi().getServer().getBindedobject()){
+            if(obj.getClazz().equals(cNAME)){
+                return obj.getName();
+            }
+        }
+        return "";
     }
 }
