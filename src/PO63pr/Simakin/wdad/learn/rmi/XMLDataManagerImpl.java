@@ -6,12 +6,11 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.*;
-import java.rmi.Remote;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class XMLDataManagerImpl implements XMLDataManager {
+public class XMLDataManagerImpl implements PO63pr.Simakin.wdad.data.managers.DataManager {
     private String filepath;
     private Restaurant restaurant;
     public XMLDataManagerImpl(){

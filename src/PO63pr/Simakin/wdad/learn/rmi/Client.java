@@ -1,16 +1,13 @@
 package PO63pr.Simakin.wdad.learn.rmi;
 
+import PO63pr.Simakin.wdad.data.managers.DataManager;
 import PO63pr.Simakin.wdad.data.managers.PreferencesManager;
-import PO63pr.Simakin.wdad.learn.xml.Date;
 import PO63pr.Simakin.wdad.learn.xml.Officiant;
-import PO63pr.Simakin.wdad.learn.xml.Order;
 import PO63pr.Simakin.wdad.learn.xml.Restaurant;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import static PO63pr.Simakin.wdad.utils.PreferencesManagerConstants.REGISTRYADDRESS;
 import static PO63pr.Simakin.wdad.utils.PreferencesManagerConstants.REGISTRYPORT;
@@ -27,8 +24,8 @@ public class Client {
         try{
         Registry registry = LocateRegistry.getRegistry(pm.getProperty(REGISTRYADDRESS),
                 Integer.parseInt(pm.getProperty(REGISTRYPORT)));
-        XMLDataManager dataManager = (XMLDataManager) registry.lookup(
-                pm.getBindedObjectName("C:\\Users\\PSYSHO\\Desktop\\starting-monkey-to-human-path\\PO63pr\\Simakin\\wdad\\learn\\rmi\\XMLDataManager"));
+        DataManager dataManager = (DataManager) registry.lookup(
+                pm.getBindedObjectName("C:\\Users\\PSYSHO\\Desktop\\starting-monkey-to-human-path\\PO63pr\\Simakin\\wdad\\learn\\rmi\\DataManager"));
         System.out.println(dataManager.lastOfficiantWorkDay(Ivan));
         System.out.println(restaurant.getOrders(date));
         System.out.println(dataManager.earningsTotal(Ivan,date));
