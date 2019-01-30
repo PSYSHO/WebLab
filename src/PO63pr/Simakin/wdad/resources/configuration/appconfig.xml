@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<appconfig>
+    <rmi>
+        <server>
+            <registry>
+                <createregistry>yes</createregistry>
+                <registryaddress>localhost</registryaddress>
+                <registryport>6000</registryport>
+            </registry>
+        <bindedobject class="PO63pr.Simakin.wdad.data.managers.DataManager" name="DataManager"/>
+    </server>
+        <client>
+            <policypath>C:\Users\PSYSHO\Desktop\РВПРС\starting-monkey-to-human-path\src\PO63pr\Simakin\wdad\learn\rmi\client.policy</policypath>
+            <usecodebaseonly>no</usecodebaseonly>
+        </client>
+        <classprovider>http://www.yourhost.free.ru/cp/cp.jar</classprovider>
+    </rmi>
+    <datasource>
+        <classname>com.mysql.cj.jdbc.Driver</classname>
+        <drivertype>thin</drivertype>
+        <hostName>localhost</hostName>
+        <port>3306</port>
+        <DBName>restaurant</DBName>
+        <user>root</user>
+        <pass/>
+    </datasource>
+</appconfig>
