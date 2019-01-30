@@ -1,6 +1,7 @@
 
 package PO63pr.Simakin.wdad.learn.xml;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.*;
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.*;
     "totalcost"
 })
 @XmlRootElement(name = "order")
-public class Order {
+public class Order implements Serializable {
 
     protected Officiant officiant;
     @XmlElement

@@ -2,6 +2,7 @@
 package PO63pr.Simakin.wdad.learn.xml;
 
 import javax.xml.bind.annotation.XmlRegistry;
+import java.io.Serializable;
 
 
 /**
@@ -19,7 +20,7 @@ import javax.xml.bind.annotation.XmlRegistry;
  * 
  */
 @XmlRegistry
-public class ObjectFactory {
+public class ObjectFactory implements Serializable {
 
 
     /**

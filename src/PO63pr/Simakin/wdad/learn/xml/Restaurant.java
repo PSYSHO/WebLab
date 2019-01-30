@@ -1,6 +1,7 @@
 
 package PO63pr.Simakin.wdad.learn.xml;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.*;
@@ -14,7 +15,7 @@ import javax.xml.bind.annotation.*;
     "date"
 })
 @XmlRootElement(name = "restaurant")
-public class Restaurant {
+public class Restaurant implements Serializable {
     @XmlElement
     protected List<Date> date;
 

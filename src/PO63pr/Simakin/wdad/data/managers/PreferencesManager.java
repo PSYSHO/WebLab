@@ -27,7 +27,7 @@ import java.util.Properties;
 import static PO63pr.Simakin.wdad.utils.PreferencesManagerConstants.*;
 
 public class PreferencesManager {
-    private static final String APPCONFIG_PATH = "C:\\Users\\PSYSHO\\Desktop\\РВПРС\\starting-monkey-to-human-path\\src\\PO63pr\\Simakin\\wdad\\resources\\configuration";
+    private static final String APPCONFIG_PATH = "C:\\Users\\PSYSHO\\Desktop\\РВПРС\\starting-monkey-to-human-path\\src\\PO63pr\\Simakin\\wdad\\resources\\configuration\\appconfig.xml";
     private static PreferencesManager instance;
 
     private XPath xPath;

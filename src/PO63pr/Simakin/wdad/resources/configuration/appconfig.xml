@@ -1,43 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE appconfig [
-        <!ELEMENT appconfig (rmi, datasource)>
-        <!ELEMENT rmi (server, client, classprovider?)>
-        <!ELEMENT server ((registry, bindedobject*)+)>
-        <!ELEMENT registry (createregistry, registryaddress, registryport)>
-        <!ELEMENT client (policypath, usecodebaseonly)>
-        <!ELEMENT createregistry (#PCDATA)> <!-- valid values: “yes”, “no” -->
-        <!ELEMENT registryaddress (#PCDATA)> <!-- valid IP X.X.X.X (X=>0-255)
-or valid host name -->
-        <!ELEMENT registryport (#PCDATA)>
-        <!ELEMENT bindedobject EMPTY>
-        <!ELEMENT policypath (#PCDATA)>
-        <!-- FS depended path (absolute or relative) to *.policy file -->
-        <!ELEMENT usecodebaseonly (#PCDATA)> <!-- valid values: “yes”, “no” -->
-        <!ELEMENT classprovider (#PCDATA)> <!-- valid FS depended path to local
-directory or *jar file, or URL to *.jar file, containing *.class files -->
-        <!ELEMENT datasource (classname, drivertype, hostName, port, DBName,
-                user, pass)>
-        <!ELEMENT classname (#PCDATA)>
-        <!ELEMENT drivertype (#PCDATA)>
-        <!ELEMENT hostName (#PCDATA)>
-        <!ELEMENT port (#PCDATA)>
-        <!ELEMENT DBName (#PCDATA)>
-        <!ELEMENT user (#PCDATA)>
-        <!ELEMENT pass (#PCDATA)>
-        <!ATTLIST bindedobject
-                name CDATA #REQUIRED
-                class CDATA #REQUIRED
-                >
-        ]>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <appconfig>
     <rmi>
         <server>
             <registry>
                 <createregistry>yes</createregistry>
                 <registryaddress>localhost</registryaddress>
-                <registryport>1099</registryport>
+                <registryport>6000</registryport>
             </registry>
-        </server>
+        <bindedobject class="PO63pr.Simakin.wdad.data.managers.DataManager" name="DataManager"/>
+    </server>
         <client>
             <policypath>C:\Users\PSYSHO\Desktop\РВПРС\starting-monkey-to-human-path\src\PO63pr\Simakin\wdad\learn\rmi\client.policy</policypath>
             <usecodebaseonly>no</usecodebaseonly>
@@ -49,8 +20,8 @@ directory or *jar file, or URL to *.jar file, containing *.class files -->
         <drivertype>thin</drivertype>
         <hostName>localhost</hostName>
         <port>3306</port>
-        <DBName>organization</DBName>
+        <DBName>restaurant</DBName>
         <user>root</user>
-        <pass>1234</pass>
+        <pass/>
     </datasource>
 </appconfig>

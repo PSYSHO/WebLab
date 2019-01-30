@@ -3,6 +3,7 @@ package PO63pr.Simakin.wdad.learn.xml;
 
 import com.sun.xml.internal.bind.AnyTypeAdapter;
 
+import java.io.Serializable;
 import java.lang.Integer;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "order"
 })
 @XmlRootElement(name = "date")
-public class Date {
+public class Date  implements Serializable {
 
     @XmlAttribute(name = "day", required = true)
     //@XmlJavaTypeAdapter(NormalizedStringAdapter.class)
