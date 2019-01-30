@@ -13,8 +13,6 @@ public class JDBCTest {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         java.util.Date date = sdf.parse("05.11.2007");
         DataManager dm = new JDBCDataManager();
-        //System.out.println(dm.salaryAverage());
-        //System.out.println(dm.salaryAverage("First Engineering"));
         Officiant Ivan = new Officiant();
         Ivan.setSecondname("Petrov");
         dm.earningsTotal(Ivan,date);
